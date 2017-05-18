@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  		#carouselExampleCaptions {
+			width:100%;
+		}
+		#heckingwow {
+			width:100%;
+		}
+		
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Multi Genre Project</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/d00cdf32e7.js"></script>
+</head>
+<body background="https://images.alphacoders.com/204/204873.jpg" style="background-attachment:fixed; width:100%; height:auto">
+   <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"> &nbsp;<span class="fa-stack fa-lg">
+  <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+  </span> Multi Genre Project&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="itemsP.html">Table of Contents</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="preface.html">Preface</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="items.html">Items</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="cites.html">Citations</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="breakout.html">Breakout</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+  <div>
+      <html>
+<head>
+<title>Breakout</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://static.codehs.com/gulp/cad7544034d869aae473f1bf5a289274fa488042/chs-js-lib/chs.js"></script>
+
+
+<style>
+canvas {
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+pre {
+    border: 1px solid black;
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    background-color: #F5F5F5;
+}
+</style>
+
+</head>
+
+<body>
+<h1>Breakout</h1>
+
+
+
+<canvas
+width="400"
+height="500"
+class="codehs-editor-canvas"></canvas>
+<pre id="console"></pre>
+
+<script>
+window.onload = function() {
+
+    var BRICK_TOP_OFFSET = 45;
+var BRICK_SPACING = 2;
+var NUM_BRICKS_PER_ROW = 10;
+var BRICK_HEIGHT = 12.5;
+var SPACE_FOR_BRICKS = getWidth() - (NUM_BRICKS_PER_ROW + 1) * BRICK_SPACING;
+var BRICK_WIDTH = SPACE_FOR_BRICKS / NUM_BRICKS_PER_ROW;
+var bLeft = 0;
+var squareW = 80;
+var BALL_RADIUS = 10;
+var ball = new Circle(BALL_RADIUS);
+var square = new Rectangle(squareW / 2, 10);
+var SPEED = 4;
+var ex = 1;
+var ey = 1;
+var dx = SPEED;
+var dy = SPEED;
+var square2 = new Rectangle(squareW / 2, 10);
+var w = getWidth() / 2;
+var txt = new Text("Bricks left: " + bLeft);
+var ltxt = new Text("Lives: " + lives);
+var lives = 5;
+var etxt;
+var extra = new Text("Bricks Left: " + bLeft);
+var pUp = new Circle(15);
+var ptxt = new Text("P", "10pt Arial");
+var usr = 2;
+var nd = true;
+var lb = false;
+var rbutton = new Rectangle(150, 30);
+var rtxt = new Text("Play Again?");
+var ndb = new Rectangle(150, 30);
+var ndtxt = new Text("Go Home?");
+var hd = false;
+var abot = false;
+var bot = false;
+var goodGray = new Color(105, 105, 105);
+var back = new Rectangle(getWidth(), getHeight());
+var ingame = false;
+var text = new Text("(" + h + ":" + m + ":" + e + s + ")");
+var s = 0;
+var m = 0;
+var e = 0;
+var h = 0;
+var pause = true;
+var pautxt = new Text("Game Paused");
+var mouse = true;
+var left = new Rectangle(getWidth() / 2, getHeight());
+var lefttxt = new Text("Keyboard?");
+var right = new Rectangle(getWidth() / 2, getHeight());
+var righttxt = new Text("Mouse?");
+var hgm = false;
+var firstTime = true;
+var stxt;
+var startButton = new WebImage("http://wasabiapp.org/wordpress/wp-content/uploads/playbutton.png");
+var startText;
+var custom = false;
+var settingsButton = new WebImage("https://image.flaticon.com/icons/png/512/9/9922.png");
+var cBackColorTxt = new Text("Background Color?");
+var cBallColor = new Text("Ball Color?");
+//    starting colors -----> ball,    background,  paddle
+var colorSwitchOptions = [Color.BLACK, goodGray, Color.BLACK];
+var backc = colorSwitchOptions[1];
+var selected;
+var cPaddleColor = new Text("Paddle Color?");
+var cgm = new Text("Game Mode?");
+var goBackText = new Text("Back");
+var introImage = new WebImage("http://www.pngmart.com/files/3/Welcome-PNG-HD.png");
+var goHomeTxt;
+var cBallRadius = new Text("Ball Radius?");
+var downTriangle = new WebImage("http://www.clker.com/cliparts/9/1/e/7/1245687669879828181Soeb_Plain_Arrow_5.svg.med.png");
+var upTriangle = new WebImage("http://i.imgur.com/ofgxTAx.png");
+var ballRadText;
+var inProgress = new WebImage("http://codefactory.com.my/img/under_construction.png");
+var moreSettings = new Text("More →");
+var settingsPage = 1;
+var settings_gap = 50;
+var numberChangeMethod = 0;
+var cPaddleLength = new Text("Paddle Length?");
+var cSpeed = new Text("Speed?");
+var cLives = new Text("Lives?");
+var itemList = [cBackColorTxt, cBallColor, cBallRadius, cPaddleColor, cgm, cPaddleLength, cSpeed, cLives];
+var numSettingsOnFirstPage = 6;
+var startingouseXInSettings = 0;
+var endingMouseXInSettings = 0;
+var inSettings = false;
+
+function start(){
+    makeScreen();
+}
+function makeScreen(){
+    makeBackground();
+    introImage.setSize(300, 100);
+    introImage.setPosition(w - introImage.getWidth() / 2, 100);
+    add(introImage);
+    startButton.setSize(75, 75);
+    startButton.setPosition(w - startButton.getWidth() / 2, 300);
+    add(startButton);
+    mouseClickMethod(startup);
+    //settings
+    var button_spacing = 3;
+    settingsButton.setSize(50, 50);
+    settingsButton.setPosition(getWidth() - settingsButton.getWidth() - button_spacing, button_spacing);
+    add(settingsButton);
+}
+function startup(e){
+    if(!ingame){
+        var element = getElementAt(e.getX(), e.getY());
+        if(element == startButton){
+            inSettings = false;
+            bLeft = 0;
+            firstTime = true;
+            bot = false;
+            removeAll();
+            defineVars();
+            playGame();
+        }
+        if(element == settingsButton){
+            openSettings();
+            inSettings = true;
+        }
+        if(element == introImage){
+            inSettings = false;
+            removeAll();
+            openCCMenu();
+        }
+    }
+}
+function openCCMenu(){
+    makeBackground();
+    var a = new Text("Less Bricks: " + cclb);
+    a.setPosition(w - a.getWidth() / 2, 100);
+    add(a);
+    a = new Text("Unlimited Lives: " + ccul);
+    a.setPosition(w - a.getWidth() / 2, 150);
+    add(a);
+    a = new Text("Admin: " + admin);
+    a.setPosition(w - a.getWidth() / 2, 200);
+    add(a);
+    a = new Text("Test: " + test);
+    a.setPosition(w - a.getWidth() / 2, 250);
+    add(a);
+    
+    goBackText.setPosition(w - goBackText.getWidth() / 2, getHeight() - 30);
+    add(goBackText);
+    
+    mouseClickMethod(intSettings);
+}
+function openSettings(){
+    removeAll();
+    makeBackground();
+    settingsPage = 1;
+    var y_position = 50;
+    
+    var items = [];
+    
+    for(var a = 0; a < numSettingsOnFirstPage; a++){
+        var x = itemList[a];
+        items.push(x);
+    }
+    
+    for(var i = 0; i < items.length; i++){
+        var item = items[i];
+        item.setPosition((w - item.getWidth()/ 2), y_position);
+        add(item);
+        y_position += settings_gap;
+    }  
+    
+    makeBottomButtons();
+    
+    goBackText = new Text("Back");
+    goBackText.setPosition(w - goBackText.getWidth() / 2, getHeight() - 30);
+    add(goBackText);
+
+    mouseClickMethod(intSettings);
+    mouseDownMethod(moveSettings);
+}
+function moveSettings(e){
+    if(inSettings){
+        startingouseXInSettings = e.getX();
+        mouseUpMethod(moveSettings2);
+    }
+}
+function moveSettings2(e){
+    if(inSettings){
+        endingMouseXInSettings = e.getX();
+        if(settingsPage == 1){
+            if(endingMouseXInSettings < startingouseXInSettings){
+                removeAll();
+                openMoreSettings();
+                settingsPage = 2;
+                startingouseXInSettings = 0;
+                endingMouseXInSettings = 0;
+            }
+        }else if(settingsPage == 2){
+            if(endingMouseXInSettings > startingouseXInSettings){
+                removeAll();
+                openSettings();
+                settingsPage = 1;
+                startingouseXInSettings = 0;
+                endingMouseXInSettings = 0;
+            }
+        }
+    }
+}
+function openNumberChangePaddleLength(){
+    makeBackground();
+    
+    numberChangeMethod = 2;
+    
+    downTriangle.setSize(75, 75);
+    downTriangle.setPosition((w - downTriangle.getWidth() / 2) - 150, (getHeight() / 2 - downTriangle.getHeight() / 2) - 25);
+    add(downTriangle);
+    
+    upTriangle.setSize(75, 75);
+    upTriangle.setPosition((w - upTriangle.getWidth() / 2) + 150, (getHeight() / 2 - upTriangle.getHeight() / 2) - 25);
+    add(upTriangle);
+    
+    ballRadText = new Text(squareW + " px");
+    ballRadText.setPosition(w - ballRadText.getWidth() / 2, getHeight() / 2 - ballRadText.getHeight() / 2);
+    add(ballRadText);
+    
+    var extraText = new Text("Paddle Length:");
+    extraText.setPosition(w - extraText.getWidth() / 2, 175);
+    add(extraText);
+    
+    add(goBackText);
+    mouseClickMethod(changeBallRadius);
+}
+function openNumberChangeBallRadius(){
+    makeBackground();
+    
+    numberChangeMethod = 1;
+    
+    downTriangle.setSize(75, 75);
+    downTriangle.setPosition((w - downTriangle.getWidth() / 2) - 150, (getHeight() / 2 - downTriangle.getHeight() / 2) - 25);
+    add(downTriangle);
+    
+    upTriangle.setSize(75, 75);
+    upTriangle.setPosition((w - upTriangle.getWidth() / 2) + 150, (getHeight() / 2 - upTriangle.getHeight() / 2) - 25);
+    add(upTriangle);
+    
+    ballRadText = new Text(BALL_RADIUS + " px");
+    ballRadText.setPosition(w - ballRadText.getWidth() / 2, getHeight() / 2 - ballRadText.getHeight() / 2);
+    add(ballRadText);
+    
+    var extraText = new Text("Ball Radius:");
+    extraText.setPosition(w - extraText.getWidth() / 2, 175);
+    add(extraText);
+    
+    add(goBackText);
+    mouseClickMethod(changeBallRadius);
+}
+function openNumberChangeSpeed(){
+    makeBackground();
+    
+    numberChangeMethod = 3;
+    
+    downTriangle.setSize(75, 75);
+    downTriangle.setPosition((w - downTriangle.getWidth() / 2) - 150, (getHeight() / 2 - downTriangle.getHeight() / 2) - 25);
+    add(downTriangle);
+    
+    upTriangle.setSize(75, 75);
+    upTriangle.setPosition((w - upTriangle.getWidth() / 2) + 150, (getHeight() / 2 - upTriangle.getHeight() / 2) - 25);
+    add(upTriangle);
+    
+    ballRadText = new Text(SPEED);
+    ballRadText.setPosition(w - ballRadText.getWidth() / 2, getHeight() / 2 - ballRadText.getHeight() / 2);
+    add(ballRadText);
+    
+    var extraText = new Text("Speed:");
+    extraText.setPosition(w - extraText.getWidth() / 2, 175);
+    add(extraText);
+    
+    add(goBackText);
+    mouseClickMethod(changeBallRadius);
+}
+function openNumberChangeLives(){
+    makeBackground();
+    
+    numberChangeMethod = 4;
+    
+    downTriangle.setSize(75, 75);
+    downTriangle.setPosition((w - downTriangle.getWidth() / 2) - 150, (getHeight() / 2 - downTriangle.getHeight() / 2) - 25);
+    add(downTriangle);
+    
+    upTriangle.setSize(75, 75);
+    upTriangle.setPosition((w - upTriangle.getWidth() / 2) + 150, (getHeight() / 2 - upTriangle.getHeight() / 2) - 25);
+    add(upTriangle);
+    
+    ballRadText = new Text(lives);
+    ballRadText.setPosition(w - ballRadText.getWidth() / 2, getHeight() / 2 - ballRadText.getHeight() / 2);
+    add(ballRadText);
+    
+    var extraText = new Text("Lives:");
+    extraText.setPosition(w - extraText.getWidth() / 2, 175);
+    add(extraText);
+    
+    add(goBackText);
+    mouseClickMethod(changeBallRadius);
+}
+function changeBallRadius(e){
+    var c = getElementAt(e.getX(), e.getY());
+    remove(ballRadText);
+    if(numberChangeMethod == 1){
+        if(c == downTriangle){
+            BALL_RADIUS--;
+        }
+        if(c == upTriangle){
+            BALL_RADIUS++;
+        }
+        ballRadText = new Text(BALL_RADIUS + " px");
+    }
+    if(numberChangeMethod == 2){
+        if(c == downTriangle){
+            squareW--;
+        }
+        if(c == upTriangle){
+            squareW++;
+        }
+        ballRadText = new Text(squareW + " px");
+    }
+    if(numberChangeMethod == 3){
+        if(c == downTriangle){
+            SPEED--;
+        }
+        if(c == upTriangle){
+            SPEED++;
+        }
+        ballRadText = new Text(SPEED);
+    }
+    if(numberChangeMethod == 4){
+        if(c == downTriangle){
+            lives--;
+        }
+        if(c == upTriangle){
+            lives++;
+        }
+        if(c == ballRadText){
+            if(lives != "∞"){
+                usr = ccul;
+                lives = "∞";
+                remove(upTriangle);
+                remove(downTriangle);
+            } else {
+                add(upTriangle);
+                add(downTriangle);
+                usr = 2;
+                lives = 5;
+            }
+        }
+        ballRadText = new Text(lives);
+    }
+    ballRadText.setPosition(w - ballRadText.getWidth() / 2, getHeight() / 2 - ballRadText.getHeight() / 2);
+    add(ballRadText);
+    
+    if(c == goBackText){
+        removeAll();
+        openSettings();
+    }
+}
+function intSettings(e){
+    if(!ingame){
+        var click = getElementAt(e.getX(), e.getY());
+        if(click == cBackColorTxt){
+            openColorMenu();
+            selected = 1;
+            mouseClickMethod(intColorSelection);
+        }
+        if(click == cBallColor){
+            openColorMenu();
+            selected = 0;
+            mouseClickMethod(intColorSelection);
+        }
+        if(click == cPaddleColor){
+            openColorMenu();
+            selected = 2;
+            mouseClickMethod(intColorSelection);
+        }
+        if(click == cgm){
+            removeAll();
+            makeBackground();
+            findGameMode();
+        }
+        if(click == goBackText){
+            if(settingsPage == 1){
+                removeAll();
+                makeScreen();
+            } else if(settingsPage == 2){
+                settingsPage = 1;
+                removeAll();
+                openSettings();
+            }
+        }
+        if(click == cBallRadius){
+            removeAll();
+            openNumberChangeBallRadius();
+        }
+        if(click == cPaddleLength){
+            removeAll();
+            settingsPage = 1;
+            openNumberChangePaddleLength();
+        }
+        if(click == cSpeed){
+            removeAll();
+            settingsPage = 1;
+            openNumberChangeSpeed();
+        }
+        if(click == cLives){
+            removeAll();
+            settingsPage = 1;
+            openNumberChangeLives();
+        }
+    }
+}
+function openMoreSettings(){
+    removeAll();
+    makeBackground();
+    settingsPage = 2;
+    var y_position = 50;
+    
+    var items = [];
+    
+    for(var a = numSettingsOnFirstPage; a < itemList.length; a++){
+        var x = itemList[a];
+        items.push(x);
+    }
+    
+    for(var i = 0; i < items.length; i++){
+        var item = items[i];
+        item.setPosition((w - item.getWidth()/ 2), y_position);
+        add(item);
+        y_position += settings_gap;
+    } 
+    
+    makeBottomButtons();
+
+    add(goBackText);
+    mouseClickMethod(intSettings);
+}
+function makeBottomButtons(){
+    var bs = new Circle(2);
+    var x3 = getWidth() / 2 - bs.getRadius() * 2 - 2;
+    bs.setPosition(x3, getHeight() - 5);
+    bs.setBorderWidth(2);
+    bs.setBorderColor(Color.BLACK);
+    var bs2 = new Circle(2);
+    x3 = getWidth() / 2 + bs2.getRadius() * 2 + 2;
+    bs2.setPosition(x3, getHeight() - 5);
+    bs2.setBorderWidth(2);
+    bs2.setBorderColor(Color.BLACK);
+    if(settingsPage == 1){
+        bs2.setColor(Color.WHITE);
+        bs.setColor(Color.BLACK);
+    } else if (settingsPage == 2){
+        bs.setColor(Color.WHITE);
+        bs2.setColor(Color.BLACK);
+    }
+    
+    
+    add(bs);
+    add(bs2);
+}
+function openColorMenu(){
+    removeAll();
+    var x = 0;
+    var y = 0;
+    makeBackground();
+    for(var i = 0; i < 10; i++){
+        var block = new Rectangle(w, getHeight() / 6);
+        block.setPosition(x, y);
+        var arr = [Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.CYAN, Color.BLUE, Color.PURPLE, goodGray, Color.BLACK, Color.WHITE];
+        block.setColor(arr[i]);
+        add(block);
+        x += block.getWidth();
+        if(x >= getWidth()){
+            x = 0;
+            y += block.getHeight();
+            var line = new Line(0, block.getY() + block.getHeight(), getWidth(), block.getY() + block.getHeight());
+            line.setBorderWidth(5);
+            add(line);
+        }
+    }
+    var y = block.getY() + block.getHeight()
+    for(var f = 0; f < 5; f++){
+        var line = new Line(0, y, getWidth(), y);
+        line.setBorderWidth(5);
+        add(line);
+        y -= block.getHeight();
+    }
+    var line2 = new Line(w, 0, w, getHeight() - block.getHeight());
+    line2.setBorderWidth(5);
+    add(line2);
+    goBackText = new Text("Back");
+    goBackText.setPosition(w - goBackText.getWidth() / 2, getHeight() - 30);
+    add(goBackText);
+}
+function intColorSelection(e){
+    if(!ingame){
+        var clickSpot = getElementAt(e.getX(), e.getY());
+        if(clickSpot == goBackText){
+            openSettings();
+        } else {
+            var color = getElementAt(e.getX(), e.getY());
+            colorSwitchOptions[selected] = color.getColor();
+            removeAll();
+            openSettings();
+        }
+    }
+    
+}
+function makeTheWorld(){
+    defineVars();
+    makePaddle();
+    makeBall();
+    addBricks();
+}
+function playGame(){
+    dx = SPEED;
+    dy = SPEED;
+    makeBackground();
+    firstTime = true;
+    lb = false;
+    abot = false;
+    pause = true;
+    ingame = true;
+    nd = true;
+    bLeft = 0;
+    makeTheWorld();
+    prepGame();
+    updateScore();
+    if(mouse){
+        mouseMoveMethod(move);
+    } 
+    if(!mouse){
+        keyDownMethod(move2);
+    }
+}
+function defineVars(){
+    if(usr == ccul){
+        nd = false;
+        lives = "∞";
+    }
+    if(usr == cclb){
+        lb = true;
+        lives = 5;
+    }
+    if(usr == admin){
+        nd = false;
+        lives = "∞";
+        lb = true;
+    }
+    if(usr == test){
+        nd = false;
+        lives = "∞";
+        lb = true;
+        abot = true;
+    }
+}
+function prepGame(){         
+    if(ingame){
+        text = new Text("(" + h + ":" + m + ":" + e + s + ")");
+        text.setPosition((getWidth() / 2) - (text.getWidth() / 2) + 15, (text.getHeight() / 2) + 18);
+        add(text);
+        if(firstTime){
+            if(mouse){
+                stxt = new Text("Click to Start");
+            } else {
+                stxt = new Text("Press the Up Arrow to Start");
+            }
+            stxt.setPosition(getWidth() / 2 - stxt.getWidth() / 2, getHeight() / 2 - stxt.getHeight() / 2);
+            add(stxt);
+        }
+        if(!pause){
+            setTimer(draw, 10);
+            setTimer(powerUp, 3000);
+            setTimer(clock, 1000);
+        }
+        if(mouse){
+            mouseClickMethod(pause1);
+        } else if(!mouse){
+            keyUpMethod(keyDown);
+        }
+    }
+}
+function keyDown(e){
+    if(ingame){
+        if(e.keyCode == Keyboard.UP){
+            if(firstTime){
+                remove(stxt);
+                firstTime = false;
+            }
+            pause = !pause;
+            if(pause){
+                stopTimer(draw);
+                stopTimer(powerUp);
+                stopTimer(clock); 
+                pautxt.setPosition(getWidth() / 2 - pautxt.getWidth() / 2, getHeight() / 2 - pautxt.getHeight() / 2);
+                add(pautxt);
+                goHomeTxt = new Text("Press Down Arrow to Exit Game");
+                goHomeTxt.setPosition(w - goHomeTxt.getWidth() / 2, getHeight() / 2 + 50);
+                add(goHomeTxt);
+            } else {
+                remove(pautxt);
+                remove(goHomeTxt);
+                setTimer(draw, 10);
+                setTimer(powerUp, 3000);
+                setTimer(clock, 1000); 
+            }
+        }
+        if(e.keyCode == Keyboard.DOWN){
+                removeAll();
+                stopAllTimers();
+                bLeft = 0;
+                ingame = false;
+                bot = false;
+                endGame();
+                makeScreen();
+            } 
+    }
+}
+function pause1(e){
+    if(ingame){
+        if(firstTime){
+            remove(stxt);
+            firstTime = false;
+        }
+        pause = !pause;
+        var click = getElementAt(e.getX(), e.getY());
+        if(click == goHomeTxt){
+            removeAll();
+            stopAllTimers();
+            bLeft = 0;
+            ingame = false;
+            bot = false;
+            endGame();
+            makeScreen();
+        } else {
+            if(pause){
+                stopTimer(draw);
+                stopTimer(powerUp);
+                stopTimer(clock); 
+                pautxt.setPosition(getWidth() / 2 - pautxt.getWidth() / 2, getHeight() / 2 - pautxt.getHeight() / 2);
+                add(pautxt);
+                goHomeTxt = new Text("Exit Game");
+                goHomeTxt.setPosition(w - goHomeTxt.getWidth() / 2, getHeight() / 2 + 50);
+                add(goHomeTxt);
+            } else {
+                remove(pautxt);
+                remove(goHomeTxt);
+                setTimer(draw, 10);
+                setTimer(powerUp, 3000);
+                setTimer(clock, 1000); 
+            }
+        }
+    }
+}
+function addBricks(){
+    ey = 1;
+    ex = 1;
+    rowI(Color.red);
+    if(usr != test){
+        rowI(Color.orange);
+        if(!lb){
+            rowI(Color.green);
+            rowI(Color.blue);
+        }
+    }
+}
+function rowI(c){
+    for(var s = 0; s < 2; s++){
+        for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+            var BRICK = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+            BRICK.setPosition(ex, ey + BRICK_TOP_OFFSET);
+            ex = ex + BRICK_SPACING + BRICK_WIDTH;
+            BRICK.setColor(c);
+            add(BRICK);
+            bLeft++;
+        }
+        ey = ey + 1 + BRICK_HEIGHT;
+        ex = 1;
+    }
+}
+function makePaddle(){
+    square.setPosition(w - square.getWidth(), getHeight() - 30);
+    square.setColor(colorSwitchOptions[2]);
+    add(square);
+    square2.setPosition(w, getHeight() - 30);
+    square2.setColor(square.getColor());
+    add(square2);
+}
+function makeBall(){
+    ball.setPosition(w, getHeight() / 2 + 15);
+    ball.setColor(colorSwitchOptions[0]);
+    add(ball);
+}
+function move(e){
+    if(!pause){
+        square.setPosition(e.getX() - squareW / 2, getHeight() - 30);
+        square2.setPosition(e.getX(), getHeight() - 30);
+        if(square.getX() <= 0){
+            square.setPosition(0, square.getY());
+            square2.setPosition(square.getX() + square.getWidth(), square2.getY());
+        } else if(square2.getX() + square2.getWidth() >= getWidth()){
+            square2.setPosition(getWidth() - square2.getWidth(), square2.getY());
+            square.setPosition(square2.getX() - square.getWidth(), square.getY());
+        }
+    }
+}
+function move2(e){
+    if(!pause){
+        if(e.keyCode == Keyboard.LEFT){
+            square.move(-45, 0);
+            square2.move(-45, 0);
+        }
+        if(e.keyCode == Keyboard.RIGHT){
+            square.move(45, 0);
+            square2.move(45, 0);
+        }
+        if(square.getX() <= 0){
+            square.setPosition(0, getHeight() - 30);
+            square2.setPosition(square.getX() + square.getWidth(), getHeight() - 30);
+        } else if(square2.getX() + square2.getWidth() >= getWidth()){
+            square2.setPosition(getWidth() - square2.getWidth(), getHeight() - 30);
+            square.setPosition(square2.getX() - square.getWidth(), getHeight() - 30);
+        }
+    }
+}
+function draw(){
+    checkWalls();
+    ball.move(dx, dy);
+    updateScore();
+}
+function checkWalls(){
+    // Bounce off right wall
+    if(ball.getX() + ball.getRadius() >= getWidth()){
+        dx = -dx;
+    }
+    // Bounce off left wall
+    if(ball.getX() - ball.getRadius() <= 0){
+        dx = -dx;
+    }
+    // Bounce off bottom wall
+    if(ball.getY() + ball.getRadius() >= getHeight()){
+        if(nd){
+            lives--;
+        }
+        remove(ball);
+        makeBall();
+    }
+    // Bounce off top wall
+    if(ball.getY() - ball.getRadius() <= 0){
+        dy = -dy;
+        if(abot){
+            bot = true;
+        }
+    }
+    //left
+    checkBricks(ball.getX() - ball.getRadius(), ball.getY());
+    //right
+    checkBricks(ball.getX() + ball.getRadius(), ball.getY());
+    //top
+    checkBricks(ball.getX(), ball.getY() - ball.getRadius());
+    //bottom
+    checkBricks(ball.getX(), ball.getY() + ball.getRadius());
+}
+function checkBricks(x, y){
+    var shape = getElementAt(x, y);
+    if(isNotNeeded(shape)){
+        if(shape != null){
+            remove(shape);
+            bLeft--;
+            if(y == ball.getY() - ball.getRadius() || y == ball.getY() + ball.getRadius()){
+                dy = -dy;
+            } else {
+                dx = -dx;
+            }
+            var color = shape.getColor();
+            var red = new Color("#FF0000")
+            if(color == red){
+                println("asd");
+                bumpSpeed();
+            }
+        }
+    }
+    if(shape == pUp || shape == ptxt){
+        remove(pUp);
+        remove(ptxt);
+        if(usr == 1){
+            lives = 10;
+        }
+        if(usr == 2 || usr == cclb){
+            lives = 5;
+        }
+        if(usr == 3){
+            lives = 3;
+        }
+        if(usr == 4){
+            lives = 2;
+        }
+    }
+    //left side
+    if(shape == square){
+        dy = -dy;
+        if(dx > 0){
+            dx = -dx;
+        }
+        
+    }
+    //right side
+    if(shape == square2){
+        dy = -dy;
+        if(dx < 0){
+            dx = -dx;
+        }
+        
+    }
+}
+function isNotNeeded(s){
+    var a = s != square2;
+    var b = s != stxt;
+    var c = s != pautxt; 
+    var d = s != text; 
+    var e = s != square;
+    var f = s != ball; 
+    var g = s != txt;
+    var h = s != ltxt;
+    var i = s != pUp;
+    var j = s != ptxt;
+ 
+   var k = s != back;
+    var l = a && b && c && d;
+    var m = e && f && g && h;
+    var n = i && j && k;
+    var o = l && m && n;
+    return o;
+}
+function updateScore(){
+    remove(txt);
+    remove(ltxt);
+    txt = new Text("Bricks left: " + bLeft);
+    ltxt = new Text("Lives: " + lives);
+    txt.setPosition(1, txt.getHeight() + 5);
+    txt.setColor(Color.black);
+    add(txt);
+    ltxt.setPosition(getWidth() - 125, ltxt.getHeight() + 5);
+    ltxt.setColor(Color.black);
+    add(ltxt);
+    if(bLeft == 0){
+        endGame();
+    }
+    if(nd){
+        if(lives == 0){
+            endGame();
+        }
+    }
+    if(abot && bot){
+        endGame();
+    }
+}
+function endGame(){
+    ingame = false;
+    removeAll();
+    add(back);
+    stopTimer(draw);
+    stopTimer(powerUp);
+    stopTimer(clock);
+    h = 0;
+    m = 0;
+    s = 0;
+    e = 0;
+    animation();
+}
+function powerUp(){
+    if(nd){
+        remove(pUp);
+        remove(ptxt);
+        var x = Randomizer.nextInt(pUp.getRadius() * 2, getWidth() - pUp.getRadius() * 2);
+        var y = Randomizer.nextInt(pUp.getRadius() * 2, getHeight() - pUp.getRadius() * 2);
+        pUp.setPosition(x, y);
+        ptxt.setPosition(pUp.getX() - 5, pUp.getY() + 4);
+        ptxt.setColor(Color.white);
+        add(pUp);
+        add(ptxt);
+    }
+}
+function animation(){
+    if(nd){
+        var white = new Color("#000000");
+        if(lives == 0){
+            etxt = new Text("Game Over: You Lose!");
+            etxt.setPosition((getWidth() / 2) - (etxt.getWidth() / 2), getHeight() / 2);
+            extra = new Text("Bricks Left: " + bLeft);
+            extra.setPosition((getWidth() / 2) - (extra.getWidth() / 2), (getHeight() / 2) + 25);
+            
+            if(backc != white){
+                extra.setColor(Color.white);
+                etxt.setColor(Color.white);
+            } else {
+                extra.setColor(Color.BLACK);
+                etxt.setColor(Color.BLACK);
+            }
+            add(etxt);
+            add(extra);
+        }
+    }
+    if(bLeft == 0 || (bot && abot)){
+        etxt = new Text("Game Over: You Win!");
+        etxt.setPosition((getWidth() / 2) - 125, getHeight() / 2);
+        if(backc != Color.White){
+            etxt.setColor(Color.white);
+        } else {
+            etxt.setColor(Color.BLACK);
+        }
+        add(etxt);
+    }
+    rbutton = new Rectangle(150, 30);
+    rbutton.setPosition(w - (rbutton.getWidth() / 2), (getHeight() / 2) + 60);
+    rtxt = new Text("Play Again?");
+    rtxt.setPosition(rbutton.getX() + 5, rbutton.getY() + 25);
+    ndb = new Rectangle(150, 30);
+    ndb.setPosition(w - (ndb.getWidth() / 2), (getHeight() / 2) + 100);
+    ndtxt = new Text("Go Home?");
+    ndtxt.setPosition(w - ndtxt.getWidth() / 2, ndb.getY() + 25);
+    if(colorSwitchOptions[1] != white){
+        ndtxt.setColor(Color.black);
+        ndb.setColor(Color.white);
+        rtxt.setColor(Color.black);
+        rbutton.setColor(Color.white);
+    } else {
+        ndtxt.setColor(Color.WHITE);
+        ndb.setColor(Color.BLACK);
+        rtxt.setColor(Color.WHITE);
+        rbutton.setColor(Color.BLACK);
+    }
+    add(rbutton);
+    add(rtxt);
+    add(ndb);
+    add(ndtxt);
+    
+    mouseClickMethod(reStart);
+}
+function reStart(e){
+    if(!ingame){
+        var elem = getElementAt(e.getX(), e.getY());
+        if(elem == rtxt){
+            bLeft = 0;
+            firstTime = true;
+            bot = false;
+            removeAll();
+            playGame();
+        }
+        if(elem == ndtxt){
+            removeAll();
+            makeScreen();
+            stopAllTimers();
+            firstTime = true;
+            ingame = false;
+            bLeft = 0;
+        }
+    }
+}
+function clock(){
+    remove(text);
+    s++;
+    if(s == 10){
+        s = 0;
+        e += 1;
+    }
+    if(e == 6){
+        m += 1;
+        s = 0;
+        e = 0;
+    }
+    if(m == 60){
+        m = 0;
+        h += 1;
+    }
+    
+    text = new Text("(" + h + ":" + m + ":" + e + s + ")");
+    text.setPosition((getWidth() / 2) - (text.getWidth() / 2) + 15, (text.getHeight() / 2) + 18);
+    add(text);
+}
+function bumpSpeed(){
+    if(dx < 0){
+        if(usr == 1){
+            dx = -3;
+        }
+        if(usr == 2 || usr == test || usr == admin || usr == cclb || usr == ccul){
+            dx = -5;
+        }
+        if(usr == 3){
+            dx = -7;
+        }
+        if(usr == 4){
+            dx = -11;
+        }
+    } else if(dx > 0){
+        if(usr == 1){
+            dx = 3;
+        }
+        if(usr == 2 || usr == test || usr == admin || usr == cclb || usr == ccul){
+            dx = 5;
+        }
+        if(usr == 3){
+            dx = 7;
+        }
+        if(usr == 4){
+            dx = 11;
+        }
+    }
+    if(dy < 0){
+        if(usr == 1){
+            dy = -3;
+        }
+        if(usr == 2 || usr == test || usr == admin || usr == cclb || usr == ccul){
+            dy = -5;
+        }
+        if(usr == 3){
+            dy = -7;
+        }
+        if(usr == 4){
+            dy = -11;
+        }
+    } else if(dy > 0){
+        if(usr == 1){
+            dy = 3;
+        }
+        if(usr == 2 || usr == test || usr == admin || usr == cclb || usr == ccul){
+            dy = 5;
+        }
+        if(usr == 3){
+            dy = 7;
+        }
+        if(usr == 4){
+            dy = 11;
+        }
+    }
+    println(dx);
+}
+function findGameMode(){
+    // left is keyboard
+    // right is mouse
+    left.setColor(backc);
+    add(left);
+    lefttxt.setPosition((getWidth() / 2 - lefttxt.getWidth()) / 2, getHeight() / 2  - lefttxt.getHeight() / 2);
+    lefttxt.setColor(Color.WHITE);
+    add(lefttxt);
+    right.setPosition(getWidth() / 2, 0);
+    right.setColor(backc);
+    add(right);
+    righttxt.setPosition(0 + (getWidth() / 2 + righttxt.getWidth()  / 2), getHeight() / 2  - righttxt.getHeight() / 2);
+    righttxt.setColor(Color.WHITE);
+    add(righttxt);
+    var line = new Line(w, 0, w, getHeight());
+    line.setBorderWidth(10);
+    add(line);
+    mouseClickMethod(int_game_mode);
+}
+function int_game_mode(e){
+    if(!ingame){
+        var c = getElementAt(e.getX(), e.getY());
+        if(c == left || c == lefttxt){
+            mouse = false;
+        } else if(c == right || c == righttxt){
+            mouse = true;
+        }
+        hgm = true;
+        openSettings();
+    }
+}
+function makeBackground(){
+    back.setColor(colorSwitchOptions[1]);
+    add(back);
+}
+
+//cheat codes
+var admin = 123;
+var cclb = 789;
+var ccul = 456;
+var test = 6;
+
+
+    if (typeof start === 'function') {
+        start();
+    }
+};
+</script>
+
+</body>
+</html>
+  </div>
+</body>
+
