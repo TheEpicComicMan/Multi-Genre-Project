@@ -3,6 +3,13 @@
 <head>
   <style type="text/css">
 	  controlnav {
+			width: 50%;
+			margin: 0;
+			padding: 0;
+			top: 0;
+			left: 0;
+		}
+	  	  beepboop {
 			width: 100%;
 			margin: 0;
 			padding: 0;
@@ -30,7 +37,7 @@
     <script src="https://use.fontawesome.com/d00cdf32e7.js"></script>
 </head>
 <body background="https://images.alphacoders.com/204/204873.jpg" style="background-attachment:fixed; width:100%; height:auto">
-   <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+   <nav id="controlnav" class="mx-auto navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -63,8 +70,8 @@
         </ul>
       </div>
   </nav>
-  
-  <div id="carouselExampleCaptions" class="carousel slide container-fluid max-width" data-ride="carousel">
+<div id="beepboop">
+  <div id="carouselExampleCaptions" class="carousel slide container-fluid mx-auto" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleCaptions" data-slide-to="0" class=""></li>
       <li data-target="#carouselExampleCaptions" data-slide-to="1" class=""></li>
@@ -73,7 +80,7 @@
     <div id="heckingwow" class="carousel-inner" role="listbox">
       <div class="carousel-item">
         <img class="d-block img-fluid mx-auto" alt="First slide [1085x400]" src="https://wallpaperlost.com/images/computer-science-wallpaper-6.jpg" data-holder-rendered="true" style="width:1928px;height:400px;">
-        <div class="carousel-caption d-none d-md-block" class="white">
+        <div class="carousel-caption d-none d-md-block white">
           <h3>6th Grade</h3>
           <p>Complete novice. I know basic IT fixes and that is all.</p>
         </div>
@@ -132,6 +139,7 @@
           <p><a class="btn btn-secondary" href="breakout.html" role="button">Play breakout »</a></p>
         </div><!-- /.col-lg-4 -->
       </div>
+	</div>
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 
